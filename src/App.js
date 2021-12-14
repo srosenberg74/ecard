@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+import GreetingCard from "./components/GreetingCard";
+import Customize from "./components/Customize";
+import Preview from "./components/Preview";
 
 function App() {
+  const [page, setPage] = useState("home");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {page === "home" && <GreetingCard setPage={setPage} />}
+      {page === "customize" && <Customize />}
+      {page === "preview" && <Preview />}
     </div>
   );
 }
