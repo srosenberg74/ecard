@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      {page === "home" && <GreetingCard setPage={setPage} />}
+      {page === "home" && <GreetingCard setPage={setPage} page={page} />}
       {page === "customize" && <Customize />}
       {page === "preview" && <Preview />}
     </div>

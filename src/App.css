@@ -1,58 +1,223 @@
-.App {
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  margin: 0 auto;
+  padding: 0;
   text-align: center;
+  font-family: "Dancing Script", cursive;
+  /* color: rgb(236, 212, 73); */
+  font-size: x-large;
+  /* background-color: blue;
+  background-image: radial-gradient(silver, cadetblue); */
+  /* color: black; */
+  /* -webkit-text-fill-color: white; Will override color (regardless of order) */
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(236, 92, 73); */
+  color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.outer {
+  /* background-image: radial-gradient(rgb(57, 117, 53), rgb(168, 216, 140)); */
+  /* background-image: radial-gradient(rgb(214, 212, 212), cadetblue); */
+  background-color: #282c34;
+  width: 100vw;
+  height: 100vh;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
+.outer-small {
+  background-color: #282c34;
+  width: 1200px;
+  height: 680px;
+}
 
-.card-holder {
-  background-image: url("./images/snowman.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 600px;
-  height: 400px;
-  border-radius: 20px;
+.snow {
+  width: 100vw;
+  height: 100vh;
+}
+
+.card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  height: 440px;
+  width: 300px;
+  border: solid 2px rgb(82, 82, 82);
+  /* animation: card-open 1 4s ease-in; */
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(2000px);
+  background-color: whitesmoke;
   margin: auto;
   text-align: center;
 }
 
-.greeting {
+.card:hover {
+  z-index: 1;
+  /* transform: perspective(2000px); */
+  box-shadow: inset 10px 0 50px rgba(165, 165, 165, 0.5);
+  /* animation: card-open 1 3s ease-in-out; */
+}
+
+.card-cover {
+  position: relative;
+  width: 304px;
+  height: 444px;
+  box-sizing: border-box;
+  transform-origin: left;
+  z-index: 4;
+  transform: translate(-2px, -2px) perspective(2000px);
+  transition: 4s;
+  /* background-color: cadetblue; */
+  background-color: rgb(236, 92, 73);
+  border: solid 2px rgb(61, 60, 60);
+  /* display: table-cell;
+  vertical-align: middle; */
+}
+
+/* .card-cover:hover {
+  transform: rotateY(-179deg) translate(-2px, -2px); */
+/* backface-visibility: hidden; */
+/* z-index: 4;
+} */
+
+.card-open {
+  transform: rotateY(-179deg) translate(-2px, -2px);
+  /* backface-visibility: hidden; */
+  z-index: 4;
+}
+
+.card-cover .stuff {
+  height: 100%;
+  visibility: visible;
+  transition-property: visibility;
+  transition-delay: 1.07s;
+}
+
+/* .card-cover:hover .stuff {
+  visibility: hidden;
+} */
+
+.stuff-open {
+  visibility: visible;
+  transition-property: visibility;
+  transition-delay: 1.07s;
+  visibility: hidden;
+}
+
+.card .details {
   position: absolute;
-  width: 50vmin;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  margin: auto;
   text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(50%, 50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: red;
+.details {
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  margin: 20px;
+  padding: 25%;
+  background-image: url("./images/snow2.gif");
+  backdrop-filter: blur(0.5);
+  background-size: cover;
+  /* border-radius: 48%; */
+  font-size: xx-large;
+  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.smallScale {
+  transform: scale(0.3);
+  /* background-color: #282c34;
+  padding: 40px 600px; */
+  margin-left: 100px;
 }
 
-@keyframes App-logo-spin {
+.details p,
+h2 {
+}
+
+.message {
+  backface-visibility: hidden;
+}
+
+/* .card-cover:after {
+  content: "";
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(to right, black, transparent);
+  -webkit-transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+} */
+
+h1 {
+  backface-visibility: hidden;
+  height: 100%;
+  padding-top: 25%;
+}
+
+.cover-content {
+  background-color: cadetblue;
+  background-color: rgb(236, 92, 73);
+  z-index: 4;
+  /* perspective: (2000px); */
+  backface-visibility: hidden;
+}
+
+.button {
+  order: 0;
+  margin-top: 86vh;
+  background-color: rgb(236, 92, 73);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  /* font-family: "Dancing Script", cursive; */
+  border: none;
+  font-size: large;
+  font-weight: 500;
+  border: outset 2px rgb(197, 144, 144);
+}
+
+.button:hover {
+  background-color: rgb(253, 130, 108);
+}
+
+.button:focus {
+  background-color: rgb(236, 92, 73);
+}
+
+.button:active {
+  background-color: rgb(253, 130, 108);
+  transform: scale(0.98);
+  border: outset 1px rgb(197, 144, 144);
+}
+
+@keyframes card-open {
   from {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   to {
-    transform: rotate(360deg);
+    /* transform: scale(1.2) translateX(140px); */
+    transform: scale(1.2);
   }
+}
+
+.instructions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  position: relative;
 }

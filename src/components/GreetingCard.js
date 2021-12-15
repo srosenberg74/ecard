@@ -1,20 +1,82 @@
-import snowman from "../images/snowman.jpeg";
 import "../App.css";
+import React, { useState, useRef, useEffect } from "react";
 
-function GreetingCard({ setPage }) {
+function GreetingCard({ setPage, page }) {
+  const [cardStyle, setCardStyle] = useState("card-cover");
+  const [innerStyle, setInnerStyle] = useState("stuff");
+  const [cardOpen, setCardOpen] = useState(false);
+  const [containerStyle, setContainerStyle] = useState("");
+
+  const outerContainerStyle = useRef();
+
+  useEffect(() => {
+    if (page === "home") {
+      outerContainerStyle.current = "outer";
+      setContainerStyle("outer");
+    } else if (page === "customize") {
+      outerContainerStyle.current = "outer-small";
+    }
+  }, [page]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="holder">
-          <div className="card-holder">
-            {/* <img src={snowman} className="greeting" alt="logo" /> */}
-            <p className="greeting">Wishing you the happiest of holidays!</p>
+    <div className="body">
+      {/* {page === "home"
+        ? () => (outerContainerStyle.current = "outer")
+        : () => (outerContainerStyle.current = "outer-small")} */}
+      <div className={outerContainerStyle.current}>
+        {/* <img src={snow} className="snow" /> */}
+        <div className="card-container">
+          <div className="card">
+            <div className={cardStyle}>
+              <div className={innerStyle}>
+                <div className="cover-content">
+                  <h1 className="message">Wishing you</h1>
+                </div>
+              </div>
+            </div>
+            {/* <div className="back-of-cover"></div> */}
+            <div className="details">
+              <h2>The happiest of holidays</h2>
+            </div>
           </div>
         </div>
-        <button className="App-link" onClick={() => setPage("customize")}>
-          Reshare This Card
-        </button>
-      </header>
+        {!cardOpen ? (
+          <button
+            className="button"
+            onClick={() => {
+              setCardStyle("card-cover card-open");
+              setInnerStyle("stuff-open");
+              setTimeout(() => setCardOpen(true), 2500);
+            }}
+          >
+            Click To Open Card
+          </button>
+        ) : page === "home" ? (
+          <button
+            className="button"
+            onClick={() => {
+              outerContainerStyle.current = "outer-small";
+              // console.log(outerContainerStyle.current);
+              // setTimeout(() => setPage("customize"), 2000);
+              // console.log(outerContainerStyle.current);
+              setPage("customize");
+            }}
+          >
+            Edit & Reshare
+          </button>
+        ) : (
+          <button
+            className="button"
+            onClick={() => {
+              setCardStyle("card-cover");
+              setInnerStyle("stuff");
+              setTimeout(() => setCardOpen(false), 2500);
+            }}
+          >
+            Click To Close Card
+          </button>
+        )}
+      </div>
     </div>
   );
 }
