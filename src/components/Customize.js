@@ -2,21 +2,87 @@ import React from "react";
 import "../App.css";
 import GreetingCard from "./GreetingCard";
 
-function Customize() {
+function Customize({
+  email,
+  setEmail,
+  greeting,
+  setGreeting,
+  body,
+  setBody,
+  closing,
+  setClosing,
+  setPage
+}) {
   return (
-    <div>
+    <div className="customize-container">
       <div className="instructions">
-        <div className="smallScale">
-          <GreetingCard />
+        <div className="smallScale item">
+          <GreetingCard greeting={greeting} body={body} closing={closing} />
         </div>
-        <p>
+        <br />
+        <br />
+        <p className="item title">
           <strong>Customize your card:</strong>
         </p>
+        <br />
+        <br />
+
+        <form className="big-item">
+          <label htmlFor="Recipient Email" name="Recipient Email">
+            Recipient Email
+          </label>
+          <br />
+          <input
+            id="Recipient Email"
+            type="text"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <br />
+          <p className="card-instructions">Card Front:</p>
+          <label htmlFor="Greeting" name="Greeting">
+            Greeting
+          </label>
+          <br />
+          <input
+            id="Greeting"
+            type="text"
+            value={greeting}
+            onChange={(event) => setGreeting(event.target.value)}
+          />
+          <br />
+          <p className="card-instructions">Card Interior:</p>
+          <label className="body-label" htmlFor="Body" name="Body">
+            Body
+          </label>
+          <br />
+
+          <textarea
+            id="Body"
+            type="text"
+            value={body}
+            rows="3"
+            onChange={(event) => setBody(event.target.value)}
+          />
+          <br />
+          <label htmlFor="Closing" name="setClosing">
+            Closing
+          </label>
+          <br />
+
+          <input
+            id="Closing"
+            type="text"
+            value={closing}
+            onChange={(event) => setClosing(event.target.value)}
+          />
+        </form>
+        <div className="button-holder">
+          <button 
+          onClick={()=>setPage('preview')}>Preview</button>
+          <button>Send</button>
+        </div>
       </div>
-      <label htmlFor="Recipient Email" name="Recipient Email">
-        Recipient Email
-      </label><br />
-      <input id="Recipient Email" type="text" />
     </div>
   );
 }
