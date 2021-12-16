@@ -58,7 +58,11 @@ function Customize({
           />
           <br />
           <p className="card-instructions">Card Front:</p>
-          <label htmlFor="Greeting" name="Greeting">
+          <label
+            className="greeting-heading"
+            htmlFor="Greeting"
+            name="Greeting"
+          >
             Greeting
           </label>
           <br />
