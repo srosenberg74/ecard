@@ -22,7 +22,7 @@ function Customize({
     mailto += 'Go To Greeting Card';
     mailto += '%0D%0A';
 
-    let url = 'https://luceroweb.github.io/ecard';
+    let url = 'https://srosenberg74.github.io/ecard';
     url += `?greeting=${encodeURIComponent(greeting)}`;
     url += `&body=${encodeURIComponent(body)}`;
     url += `&closing=${encodeURIComponent(closing)}`;
