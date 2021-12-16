@@ -305,18 +305,21 @@ div.button-holder button {
 }
 
 .customize-container {
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 18px 0;
+  padding: 14px 0;
   /* background-image: radial-gradient(rgb(57, 117, 53), rgb(168, 216, 140)); */
   background-image: radial-gradient(rgb(214, 212, 212), cadetblue);
   max-height: 100vh;
+  min-height: 100vh;
 }
 
 .instructions {
+  box-sizing: content-box;
   display: flex;
   flex-direction: column;
   /* gap: 10px; */

@@ -1,7 +1,7 @@
 import "../App.css";
 import React, { useState, useRef, useEffect } from "react";
 
-function GreetingCard({ setPage, page, greeting, body, closing }) {
+function GreetingCard({ setPage, page, greeting, body, closing, email }) {
   const [cardStyle, setCardStyle] = useState("card-cover");
   const [innerStyle, setInnerStyle] = useState("stuff");
   const [cardOpen, setCardOpen] = useState(false);
@@ -17,6 +17,24 @@ function GreetingCard({ setPage, page, greeting, body, closing }) {
       outerContainerStyle.current = "outer-small";
     }
   }, [page]);
+
+  const sendEcard = () => {
+    let mailto = `mailto:${email}`;
+    mailto += '?subject=E-Card';
+    mailto += '&body=You have received an e-greeting card.';
+    mailto += '%0D%0A%0D%0A';
+    mailto += 'Go To Greeting Card';
+    mailto += '%0D%0A';
+
+    let url = 'https://luceroweb.github.io/ecard';
+    url += `?greeting=${encodeURIComponent(greeting)}`;
+    url += `&body=${encodeURIComponent(body)}`;
+    url += `&closing=${encodeURIComponent(closing)}`;
+
+    mailto += encodeURIComponent(url);
+
+    window.open(mailto);
+  }
 
   return (
     <div className="body">
@@ -43,16 +61,49 @@ function GreetingCard({ setPage, page, greeting, body, closing }) {
         </div>
         {!cardOpen ? (
           page === "home" || page === "preview" ? (
-            <button
-              className="button"
-              onClick={() => {
-                setCardStyle("card-cover card-open");
-                setInnerStyle("stuff-open");
-                setTimeout(() => setCardOpen(true), 2500);
-              }}
-            >
-              Click To Open Card
-            </button>
+            page === "home" ? (
+              <button
+                className="button"
+                onClick={() => {
+                  setCardStyle("card-cover card-open");
+                  setInnerStyle("stuff-open");
+                  setTimeout(() => setCardOpen(true), 2500);
+                }}
+              >
+                Click To Open Card
+              </button>
+            ) : (
+              <div>
+                <button
+                  className="button"
+                  onClick={() => {
+                    outerContainerStyle.current = "outer-small";
+                    // console.log(outerContainerStyle.current);
+                    // setTimeout(() => setPage("customize"), 2000);
+                    // console.log(outerContainerStyle.current);
+                    setPage("customize");
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="button"
+                  onClick={() => {
+                    setCardStyle("card-cover card-open");
+                    setInnerStyle("stuff-open");
+                    setTimeout(() => setCardOpen(true), 2500);
+                  }}
+                >
+                  Open Card
+                </button>
+                <button
+                  className="button"
+                  onClick={() => sendEcard}
+                >
+                  Send
+                </button>
+              </div>
+            )
           ) : (
             <button
               className="button-customize"
