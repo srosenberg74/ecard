@@ -88,7 +88,7 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
                 >
                   Open Card
                 </button>
-                <button className="button" onClick={() => sendEcard}>
+                <button className="button" onClick={sendEcard}>
                   Send
                 </button>
               </div>
@@ -137,13 +137,7 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
               >
                 Close Card
               </button>
-              <button
-                className="button"
-                onClick={() => {
-                  outerContainerStyle.current = "outer-small";
-                  setPage("customize");
-                }}
-              >
+              <button className="button" onClick={sendEcard}>
                 Send
               </button>
             </div>
