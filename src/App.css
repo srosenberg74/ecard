@@ -248,6 +248,8 @@ h1 {
   font-size: large;
   font-weight: 500;
   border: outset 2px rgb(197, 144, 144);
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 div.button-holder button {

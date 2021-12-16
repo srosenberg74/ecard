@@ -10,7 +10,7 @@ function GreetingCard({ setPage, page, greeting, body, closing }) {
   const outerContainerStyle = useRef();
 
   useEffect(() => {
-    if (page === "home") {
+    if (page === "home" || page === "preview") {
       outerContainerStyle.current = "outer";
       setContainerStyle("outer");
     } else if (page === "customize") {
@@ -42,7 +42,7 @@ function GreetingCard({ setPage, page, greeting, body, closing }) {
           </div>
         </div>
         {!cardOpen ? (
-          page === "home" ? (
+          page === "home" || page === "preview" ? (
             <button
               className="button"
               onClick={() => {
@@ -65,19 +65,58 @@ function GreetingCard({ setPage, page, greeting, body, closing }) {
               Open Card
             </button>
           )
-        ) : page === "home" ? (
-          <button
-            className="button"
-            onClick={() => {
-              outerContainerStyle.current = "outer-small";
-              // console.log(outerContainerStyle.current);
-              // setTimeout(() => setPage("customize"), 2000);
-              // console.log(outerContainerStyle.current);
-              setPage("customize");
-            }}
-          >
-            Edit & Reshare
-          </button>
+        ) : page === "home" || page === "preview" ? (
+          page === "home" ? (
+            <button
+              className="button"
+              onClick={() => {
+                outerContainerStyle.current = "outer-small";
+                // console.log(outerContainerStyle.current);
+                // setTimeout(() => setPage("customize"), 2000);
+                // console.log(outerContainerStyle.current);
+                setPage("customize");
+              }}
+            >
+              Edit & Reshare
+            </button>
+          ) : (
+            <div>
+              <button
+                className="button"
+                onClick={() => {
+                  outerContainerStyle.current = "outer-small";
+                  // console.log(outerContainerStyle.current);
+                  // setTimeout(() => setPage("customize"), 2000);
+                  // console.log(outerContainerStyle.current);
+                  setPage("customize");
+                }}
+              >
+                Edit
+              </button>
+              <button
+                className="button"
+                onClick={() => {
+                  setCardStyle("card-cover");
+                  setInnerStyle("stuff");
+                  setTimeout(() => setCardOpen(false), 2500);
+                }}
+              >
+                Close Card
+              </button>
+              <button
+                className="button"
+                onClick={() => {
+                  outerContainerStyle.current = "outer-small";
+                  // console.log(outerContainerStyle.current);
+                  // setTimeout(() => setPage("customize"), 2000);
+                  // console.log(outerContainerStyle.current);
+                  setPage("customize");
+                }}
+              >
+                Send
+              </button>
+            </div>
+          )
         ) : (
           <button
             className="button-customize"
