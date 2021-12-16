@@ -38,11 +38,7 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
 
   return (
     <div className="body">
-      {/* {page === "home"
-        ? () => (outerContainerStyle.current = "outer")
-        : () => (outerContainerStyle.current = "outer-small")} */}
       <div className={outerContainerStyle.current}>
-        {/* <img src={snow} className="snow" /> */}
         <div className="card-container">
           <div className="card">
             <div className={cardStyle}>
@@ -52,7 +48,6 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
                 </div>
               </div>
             </div>
-            {/* <div className="back-of-cover"></div> */}
             <div className="details">
               <h2>{body}</h2>
               <h3 className="closing">{closing}</h3>
@@ -78,9 +73,6 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
                   className="button"
                   onClick={() => {
                     outerContainerStyle.current = "outer-small";
-                    // console.log(outerContainerStyle.current);
-                    // setTimeout(() => setPage("customize"), 2000);
-                    // console.log(outerContainerStyle.current);
                     setPage("customize");
                   }}
                 >
@@ -122,9 +114,6 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
               className="button"
               onClick={() => {
                 outerContainerStyle.current = "outer-small";
-                // console.log(outerContainerStyle.current);
-                // setTimeout(() => setPage("customize"), 2000);
-                // console.log(outerContainerStyle.current);
                 setPage("customize");
               }}
             >
@@ -136,9 +125,6 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
                 className="button"
                 onClick={() => {
                   outerContainerStyle.current = "outer-small";
-                  // console.log(outerContainerStyle.current);
-                  // setTimeout(() => setPage("customize"), 2000);
-                  // console.log(outerContainerStyle.current);
                   setPage("customize");
                 }}
               >
@@ -158,9 +144,6 @@ function GreetingCard({ setPage, page, greeting, body, closing, email }) {
                 className="button"
                 onClick={() => {
                   outerContainerStyle.current = "outer-small";
-                  // console.log(outerContainerStyle.current);
-                  // setTimeout(() => setPage("customize"), 2000);
-                  // console.log(outerContainerStyle.current);
                   setPage("customize");
                 }}
               >

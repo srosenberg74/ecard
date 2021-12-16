@@ -9,21 +9,12 @@ html {
   padding: 0;
   text-align: center;
   font-family: "Dancing Script", cursive;
-  /* color: rgb(236, 212, 73); */
   font-size: x-large;
-  /* background-color: blue;
-  background-image: radial-gradient(silver, cadetblue); */
-  /* color: black; */
-  /* -webkit-text-fill-color: white; Will override color (regardless of order) */
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(236, 92, 73); */
   color: white;
   text-shadow: 1px 1px 1px rgb(104, 104, 104);
 }
 
 .outer {
-  /* background-image: radial-gradient(rgb(57, 117, 53), rgb(168, 216, 140)); */
-  /* background-image: radial-gradient(rgb(214, 212, 212), cadetblue); */
   background-color: #282c34;
   background-image: radial-gradient(rgb(1, 9, 83), rgb(0, 4, 27));
   width: 100vw;
@@ -42,7 +33,7 @@ html {
 }
 
 .item {
-  /* width: 30vw; */
+
   height: 5vh;
   margin: 5vw;
 }
@@ -50,25 +41,17 @@ html {
 .title {
   font-size: 2.4rem;
   margin: 0;
-  /* margin-top: 25px; */
-  /* min-width: 80vw; */
   font-family: "Dancing Script", cursive;
-  /* margin-left: 40px; */
   color: #282c34;
 }
 
 .big-item {
-  /* width: 600px;
-  max-width: 90vw; */
-  /* height: 80vh; */
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  /* padding-left: 40px; */
 }
 
 form {
-  /* border: solid 2px black; */
   font-size: 1.2rem;
 }
 
@@ -77,11 +60,6 @@ input,
 textarea {
   margin-bottom: 15px;
   width: 250px;
-  /* border-radius: 4px; */
-}
-input,
-textarea {
-  /* text-align: center; */
 }
 
 textarea {
@@ -108,7 +86,6 @@ textarea {
   height: 440px;
   width: 300px;
   border: solid 2px rgb(82, 82, 82);
-  /* animation: card-open 1 4s ease-in; */
   position: relative;
   transform-style: preserve-3d;
   transform: perspective(2000px);
@@ -119,9 +96,7 @@ textarea {
 
 .card:hover {
   z-index: 1;
-  /* transform: perspective(2000px); */
   box-shadow: inset 10px 0 50px rgba(165, 165, 165, 0.5);
-  /* animation: card-open 1 3s ease-in-out; */
 }
 
 .card-cover {
@@ -133,22 +108,12 @@ textarea {
   z-index: 4;
   transform: translate(-2px, -2px) perspective(2000px);
   transition: 4s;
-  /* background-color: cadetblue; */
   background-color: rgb(236, 92, 73);
   border: solid 2px rgb(61, 60, 60);
-  /* display: table-cell;
-  vertical-align: middle; */
 }
-
-/* .card-cover:hover {
-  transform: rotateY(-179deg) translate(-2px, -2px); */
-/* backface-visibility: hidden; */
-/* z-index: 4;
-} */
 
 .card-open {
   transform: rotateY(-179deg) translate(-2px, -2px);
-  /* backface-visibility: hidden; */
   z-index: 4;
 }
 
@@ -158,10 +123,6 @@ textarea {
   transition-property: visibility;
   transition-delay: 1.07s;
 }
-
-/* .card-cover:hover .stuff {
-  visibility: hidden;
-} */
 
 .stuff-open {
   visibility: visible;
@@ -182,22 +143,17 @@ textarea {
 .details {
   width: 100%;
   height: 100%;
-  /* vertical-align: center; */
   margin: 20px;
   padding: 25%;
   background-image: url("./images/snow2.gif");
   backdrop-filter: blur(0.5);
   background-size: cover;
-  /* border-radius: 48%; */
   font-size: xx-large;
   color: white;
 }
 
 .smallScale {
   transform: scale(0.3);
-  /* background-color: #282c34;
-  padding: 40px 600px; */
-  /* margin-left: 100px; */
 }
 
 .details p,
@@ -209,19 +165,6 @@ h2 {
   text-shadow: none;
 }
 
-/* .card-cover:after {
-  content: "";
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background: linear-gradient(to right, black, transparent);
-  -webkit-transform: rotateY(180deg);
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-} */
-
 h1 {
   backface-visibility: hidden;
   height: 100%;
@@ -232,7 +175,6 @@ h1 {
   background-color: cadetblue;
   background-color: rgb(236, 92, 73);
   z-index: 4;
-  /* perspective: (2000px); */
   backface-visibility: hidden;
 }
 
@@ -243,7 +185,6 @@ h1 {
   color: white;
   padding: 10px 20px;
   border-radius: 40px;
-  /* font-family: "Dancing Script", cursive; */
   border: none;
   font-size: large;
   font-weight: 500;
@@ -259,7 +200,6 @@ div.button-holder button {
   padding: 8px 10px;
   margin: 0 5px;
   border-radius: 40px;
-  /* font-family: "Dancing Script", cursive; */
   border: none;
   font-size: large;
   font-weight: 500;
@@ -273,7 +213,6 @@ div.button-holder button {
   color: white;
   padding: 10px 20px;
   border-radius: 80px;
-  /* font-family: "Dancing Script", cursive; */
   border: none;
   font-size: 3rem;
   font-weight: 500;
@@ -299,7 +238,6 @@ div.button-holder button {
     transform: scale(1);
   }
   to {
-    /* transform: scale(1.2) translateX(140px); */
     transform: scale(1.2);
   }
 }
@@ -312,7 +250,6 @@ div.button-holder button {
   justify-content: center;
   align-items: center;
   padding: 14px 0;
-  /* background-image: radial-gradient(rgb(57, 117, 53), rgb(168, 216, 140)); */
   background-image: radial-gradient(rgb(214, 212, 212), cadetblue);
   max-height: 100vh;
   min-height: 100vh;
@@ -341,7 +278,6 @@ div.button-holder button {
 
 .card-instructions {
   font-size: 0.7rem;
-  /* font-family: "Dancing Script", cursive; */
 }
 
 .preview-container {
